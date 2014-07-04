@@ -1,0 +1,2 @@
+recursive-include boxer/static *
+recursive-include boxer/templates *
