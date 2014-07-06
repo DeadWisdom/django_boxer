@@ -1,0 +1,65 @@
+{% load humanize %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boxer - Django Outbox</title>
+
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/boxer/style.css">
+    <script type="text/javascript" src="{{STATIC_URL}}/boxer/jquery.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/boxer/script.js"></script>
+
+    <script type="text/javascript">
+        BASE_HREF = "{{ request.path }}";
+        CSRF_TOKEN = "{{ request.META.CSRF_COOKIE }}";
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Boxer</h1>
+        <h2>Django Outbox Capture</h2>
+    </header>
+
+    <article>
+        {% for m in emails %}
+            <section id="email-{{m.id}}" class="message">
+                <div class="info">
+                    <div class="to">{{ m.to }}</div>
+                    <div class="subject">{{ m.subject }}</div>
+                    <div class="created" title="{{m.created}}">{{ m.created|date:"n/j g:i:s A" }}</div>
+                </div>
+                <div class="full">
+                    <div class="subject">{{ m.subject }}</div>
+                    <div class="from">{{ m.fro }}</div>
+                    <div class="created" title="{{m.created}}">{{ m.created|date:"n/j g:i:s A" }}</div>
+                    <div class="address">
+                        {% if m.to %}
+                            <div class="label">to:</div> <div class="to">{{ m.to }}</div>
+                        {% endif %}
+                        {% if m.cc %}
+                            <div class="label">cc:</div> <div class="cc">{{ m.cc }}</div>
+                        {% endif %}
+                        {% if m.bcc %}
+                            <div class="label">bcc:</div> <div class="bcc">{{ m.bcc }}</div>
+                        {% endif %}
+                    </div>
+                    {% if m.html %}
+                    <div class="html">
+                        {{ m.html|safe }}
+                    </div>
+                    {% endif %}
+                    <div class="text">
+                        {{ m.text }}
+                    </div>
+                </div>
+                <div class="controls">
+                    <a href="javascript:deleteMessage('{{m.id}}');">delete</a>
+                </div>
+                <div class="clear"></div>
+            </section>
+        {% empty %}
+            <em>No emails yet.</em>
+        {% endfor %}
+    </article>
+</body>
+</html>

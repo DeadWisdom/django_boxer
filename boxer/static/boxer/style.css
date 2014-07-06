@@ -1,0 +1,131 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #444;
+    background: #F5F5F5 url('img/gloves.png') no-repeat 10px 10px;
+    padding-left: 170px;
+    padding-top: 40px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+header h2 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #AAA;
+}
+
+header {
+    margin-bottom: 12px;
+}
+
+article {
+    
+}
+
+.message {
+    background-color: white;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    position: relative;
+    border-bottom: 1px solid #DDD;
+}
+
+article .message:first-child {
+    border-top: 1px solid #DDD;
+}
+
+.message .full {
+    display: none;
+}
+
+.message .info div {
+    float: left;
+    padding: 3px;
+}
+
+.message .info .to {
+    width: 170px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.message .info .to {
+    width: 150px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.message .info .subject {
+    width: 500px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.open .info {
+    display: none;
+}
+
+.open .full {
+    display: block;
+}
+
+.clear {
+    clear: both;
+}
+
+.message .full div {
+    padding: 4px;
+}
+
+.message .full .subject {
+    font-weight: bold;
+}
+
+.message .full .from, .message .full .created {
+    color: #888;
+    float: left;
+}
+
+.message .full .label {
+    float: left;
+}
+
+.message .full .address {
+    clear: both;
+    padding: 0;
+    color: #888;
+}
+
+.message .full .html {
+    border-top: 1px solid #DDD;
+    padding: 22px;
+}
+
+.message .full .text {
+    display: none;
+    border-top: 1px solid #DDD;
+    padding: 12px;
+}
+
+.message .controls {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 2px 4px;
+}
+
+.message .controls a {
+    text-decoration: none;
+    color: #AAA;
+}
+
+.message .controls a:hover {
+    color: #80E;
+}
+
+.open .controls {
+}
