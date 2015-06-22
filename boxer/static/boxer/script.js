@@ -1,6 +1,5 @@
 function openMessage(message) {
     $('.message').not(message).removeClass('open');
-    console.log(message);
     message.addClass('open');
 };
 
@@ -30,8 +29,7 @@ $(document).on('click', function(e) {
     var msg = $(e.target).closest('.message');
     if (msg.length) {
         openMessage(msg);
-    }
-    else {
+    } else {
         $('.message').removeClass('open');
     }
 });

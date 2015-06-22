@@ -106,9 +106,13 @@ article .message:first-child {
 }
 
 .message .full .text {
-    display: none;
     border-top: 1px solid #DDD;
     padding: 12px;
+    
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
 }
 
 .message .controls {
